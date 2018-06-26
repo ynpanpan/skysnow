@@ -96,7 +96,15 @@ After performing this,x can either contain the string 'Hello, world!' or the lis
 
 In this case, it seems that the list won out.But the point is that you didn't need to check.Your only requirement was that x has a method called count that takes a single character as an argument and returned an integer.If someone else had made his own class of objects that had this method,it wouldn't matter to you-you could use his objects just as well as the strings and lists.
 
-add one
-add two
-add three
-add four
+**Polymorphism Comes in Many Forms**
+
+Polymorphism is at work every time you can "do something"to an object without having to know exactly what kind of object it is.This doesn't apply only to methods-we've already used polymorphism a lot in the form of built-in operators and functions.Consider the following:
+
+```
+>>>1 + 2
+3
+>>>'Fish' + 'license'
+'Fishlicense'
+```
+
+This might seem silly,but the point is 
