@@ -107,4 +107,38 @@ Polymorphism is at work every time you can "do something"to an object without ha
 'Fishlicense'
 ```
 
-This might seem silly,but the point is 
+Here,the plus operator(+) works fine for both numbers(integers in this case)and strings(as well as other types of sequences).To illustrate the point,let's say you wanted to make a function called add that added two things together.You could simply define it like this(equivalent to,but less efficient than,the add function from the operator module):
+
+```
+def add(x, y):
+	return x+y
+```
+
+This would also work with many kinds of arguments:
+
+```
+>>>add(1, 2)
+3
+>>>add('Fish', 'license')
+'Fishlicense'
+```
+
+This might seem silly,but the point is that the arguments can be anything that supports addition.If you want to write a function that prints a message about the length of an object,all that's required is that it has a length(that the len function will work on it).
+
+```
+def length_message(x):
+	print("The length of", repr(x), "is", len(x))
+```
+
+As you can see,the function also uses repr,but repr is one of the grand masters of polymorphism-it works with anything.Let's see how:
+
+```
+>>>length_message('Fnord')
+The length of 'Fnord' is 5
+>>>length_message([1, 2, 3])
+The length of [1, 2, 3] is 3
+```
+
+Many functions and operators are polymorphism-probably most of yours will be,too,even if you don't intend them to be.Just by using polymorphic functions and operators,the polymorphism "rubs off."In fact,virtually the only thing you can do to destroy this polymorphism is to do explicit type checking with functions such as type,`,and issubclass.If you can,you really should avoid destroying polymorphism this way.What matters should be that an object acts the way you want,not whether it is of the right type(or class).
+
+> The form of polymorphism discussed here,which is so central to the Python way of programming,is sometimes called"duck typeing",The term derives from the phrase,"If it quacks like a duke..."For more information,see http://en.wikipedia.org/wiki/Duck_typing.
